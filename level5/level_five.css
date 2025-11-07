@@ -1,56 +1,192 @@
-/* Notice the "grid-area" */
+
 .webpage {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 40px auto 120px;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
       "sidebar  header"
       "sidebar  main"
       "footer   footer";
-  }
-  /* Used in the following rulesets */
-  .header {
+    gap: 20px;
+}
+
+.header {
     grid-area: header;
-  }
-  .main {
+    border-bottom: 1px solid #588157;
+    padding: 10px 0;
+}
+
+.main {
     grid-area: main;
-  }
-  .footer {
+    margin-top: 20px;
+}
+
+.footer {
     grid-area: footer;
-  }
-  .sidebar {
+    margin-top: 30px;
+}
+
+.sidebar {
     grid-area: sidebar;
-  
-    padding-right: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-  }
-  .profile-pic {
-    width: 100%;
+    gap: 25px;
+    border-right: 1px solid #588157;
+}
+
+.profile1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-  }
-  .profile {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; 
-      gap: 2px; 
-  }
-  .name {
-    font-size: larger;
+    border: 2px solid #588157;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name {
+    font-size: 24px;
     font-weight: bold;
-    margin: 5px 0px;
-  }
-  .user-name {
+}
+
+.user-name {
+    color: #666;
+    font-size: 16px;
+}
+
+.hide {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.hide button {
+    background: #3a5a40;
     color: white;
-  }
-  .side-item {
-    text-align: right;
-    font-size: large;
-  }
-  .side-item:hover {
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.side-item {
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.side-item:hover {
     font-weight: bold;
     color: #588157;
-  }
+}
   
   /* Insert @Media queries here! */
+  
+  /* Medium and Small screens (≤992px) - Convert sidebar to second navbar */
+  @media (max-width: 992px) {
+    .webpage {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto 1fr auto;
+      grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+      gap: 10px;
+    }
+
+    .sidebar {
+      padding: 15px 20px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-right: none;
+      border-bottom: 1px solid #588157;
+    }
+
+    .profile1 {
+      flex-direction: row;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .profile-pic {
+      width: 60px;
+      height: 60px;
+      border-width: 1px;
+    }
+
+    .profile {
+      text-align: left;
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    .user-name {
+      font-size: 14px;
+    }
+
+    .hide {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hide button {
+      width: auto;
+    }
+
+    .side-item {
+      font-size: 14px;
+      padding: 0;
+      margin: 0 10px;
+    }
+  }
+
+  /* Small screens (≤768px) - Further adjustments */
+  @media (max-width: 768px) {
+    .webpage {
+      gap: 5px;
+    }
+
+    .hide {
+      display: none;
+    }
+    
+    .sidebar {
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .profile1 {
+      gap: 10px;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+    }
+
+    .profile {
+      text-align: left;
+    }
+
+    .main {
+      margin-top: 10px;
+    }
+  }

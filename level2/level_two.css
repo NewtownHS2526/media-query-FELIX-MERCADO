@@ -35,3 +35,20 @@ body {
   }
   
   /* Insert @Media queries here! */
+
+  /*Large*/
+@media (max-width: 992px) {
+
+.foot-item {
+  flex-direction: row;
+}
+
+.foot-item-logo {
+  flex-direction: row;
+}
+
+.footer {
+  flex-direction: column-reverse;
+}
+
+}
